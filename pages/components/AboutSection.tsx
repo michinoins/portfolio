@@ -16,7 +16,7 @@ import {
 
 const Section = styled.section`
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   padding: 3rem 0;
 `;
@@ -34,6 +34,7 @@ const Content = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  margin-right: 3rem;
 `;
 
 const SectionTitle = styled(Typography)`

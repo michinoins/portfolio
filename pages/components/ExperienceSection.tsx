@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  Typography,
-  Card,
-  CardContent,
-  CardHeader,
-  Box,
-  Grid,
-} from "@mui/material";
+import { Typography, Card, CardContent, CardHeader, Grid } from "@mui/material";
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
 
@@ -20,12 +13,23 @@ const fadeInAnimation = keyframes`
 `;
 
 const Section = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 3rem 0;
+`;
+
+const Content = styled.div`
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-right: 3rem;
 `;
 
 const SectionTitle = styled(Typography)`
   margin-bottom: 2rem;
-  text-align: center;
 `;
 
 const CompanyButton = styled.button`
@@ -80,43 +84,44 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ id }) => {
       ],
     },
   ];
-
   const selectedCompany = companies[selectedCompanyIndex];
 
   return (
     <Section id={id}>
-      <SectionTitle variant="h4">Experience</SectionTitle>
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={4} md={3}>
-          {companies.map((company, index) => (
-            <CompanyButton
-              key={index}
-              onClick={() => setSelectedCompanyIndex(index)}
-              active={selectedCompanyIndex === index}
-            >
-              {company.name}
-            </CompanyButton>
-          ))}
-        </Grid>
-        <Grid item xs={12} sm={8} md={9}>
-          <Card>
-            <CardHeader
-              title={selectedCompany.position}
-              subheader={selectedCompany.name}
-            />
-            <AnimatedCardContent>
-              <Typography variant="body2" color="text.secondary">
-                {selectedCompany.period}
-              </Typography>
-              {selectedCompany.description.map((item, index) => (
-                <Typography key={index} variant="body1">
-                  - {item}
+      <Content>
+        <SectionTitle variant="h4">Experience</SectionTitle>
+        <Grid container spacing={3}>
+          <Grid item xs={12} sm={4} md={3}>
+            {companies.map((company, index) => (
+              <CompanyButton
+                key={index}
+                onClick={() => setSelectedCompanyIndex(index)}
+                active={selectedCompanyIndex === index}
+              >
+                {company.name}
+              </CompanyButton>
+            ))}
+          </Grid>
+          <Grid item xs={12} sm={8} md={9}>
+            <Card>
+              <CardHeader
+                title={selectedCompany.position}
+                subheader={selectedCompany.name}
+              />
+              <AnimatedCardContent>
+                <Typography variant="body2" color="text.secondary">
+                  {selectedCompany.period}
                 </Typography>
-              ))}
-            </AnimatedCardContent>
-          </Card>
+                {selectedCompany.description.map((item, index) => (
+                  <Typography key={index} variant="body1">
+                    - {item}
+                  </Typography>
+                ))}
+              </AnimatedCardContent>
+            </Card>
+          </Grid>
         </Grid>
-      </Grid>
+      </Content>
     </Section>
   );
 };
