@@ -17,9 +17,13 @@ const Paragraph = styled(Typography)`
   text-align: justify;
 `;
 
-const AboutSection: React.FC = () => {
+interface AboutSectionProps {
+  id: string;
+}
+
+const AboutSection: React.FC<AboutSectionProps> = ({ id }) => {
   return (
-    <Section>
+    <Section id={id}>
       <SectionTitle variant="h4">About Me</SectionTitle>
       <Paragraph>
         Hello! My name is [Your Name], and I'm a front-end developer with a

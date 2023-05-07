@@ -25,9 +25,13 @@ const SocialIconButton = styled(Link)`
   margin: 0 1rem;
 `;
 
-const ContactSection: React.FC = () => {
+interface ContactSectionProps {
+  id: string;
+}
+
+const ContactSection: React.FC<ContactSectionProps> = ({ id }) => {
   return (
-    <Section>
+    <Section id={id}>
       <SectionTitle variant="h4">Contact</SectionTitle>
       <SocialIcons>
         <Tooltip title="Email">

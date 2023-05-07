@@ -18,9 +18,13 @@ const SkillChip = styled(Chip)`
 
 const skills = ["HTML", "CSS", "JavaScript", "React", "Next.js"];
 
-const SkillsSection: React.FC = () => {
+interface SkillsSectionProps {
+  id: string;
+}
+
+const SkillsSection: React.FC<SkillsSectionProps> = ({ id }) => {
   return (
-    <Section>
+    <Section id={id}>
       <SectionTitle variant="h4">Skills</SectionTitle>
       <Grid container justifyContent="center">
         {skills.map((skill, index) => (
