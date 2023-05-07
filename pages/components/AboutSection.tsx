@@ -1,6 +1,7 @@
 import React from "react";
 import { Typography } from "@mui/material";
 import styled from "@emotion/styled";
+
 import {
   SiJavascript,
   SiReact,
@@ -39,11 +40,15 @@ const Content = styled.div`
 
 const SectionTitle = styled(Typography)`
   margin-bottom: 2rem;
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
 `;
 
 const Paragraph = styled(Typography)`
   text-align: justify;
   margin-bottom: 2rem;
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
 `;
 
 const StackContainer = styled.div`
@@ -56,6 +61,17 @@ const StackItem = styled.div`
   align-items: center;
   margin-right: 1rem;
   margin-bottom: 1rem;
+`;
+
+const TechTypography = styled(Typography)`
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  text-shadow: 0 0 2px #ffffff, 0 0 4px #3cc5ff;
+`;
+
+const ColoredIcon = styled.svg`
+  color: #3cc5ff;
 `;
 
 interface AboutSectionProps {
@@ -78,44 +94,44 @@ const AboutSection: React.FC<AboutSectionProps> = ({ id }) => {
         <SectionTitle variant="h5">Technical Stack</SectionTitle>
         <StackContainer>
           <StackItem>
-            <SiJavascript size={24} />
-            <Typography>JavaScript</Typography>
+            <ColoredIcon as={SiJavascript} size={24} />
+            <TechTypography>JavaScript</TechTypography>
           </StackItem>
           <StackItem>
-            <SiReact size={24} />
-            <Typography>React.js</Typography>
+            <ColoredIcon as={SiReact} size={24} />
+            <TechTypography>React.js</TechTypography>
           </StackItem>
           <StackItem>
-            <SiTypescript size={24} />
-            <Typography>TypeScript</Typography>
+            <ColoredIcon as={SiTypescript} size={24} />
+            <TechTypography>TypeScript</TechTypography>
           </StackItem>
           <StackItem>
-            <SiNodedotjs size={24} />
-            <Typography>Node.js</Typography>
+            <ColoredIcon as={SiNodedotjs} size={24} />
+            <TechTypography>Node.js</TechTypography>
           </StackItem>
           <StackItem>
-            <SiKotlin size={24} />
-            <Typography>Kotlin</Typography>
+            <ColoredIcon as={SiKotlin} size={24} />
+            <TechTypography>Kotlin</TechTypography>
           </StackItem>
           <StackItem>
-            <SiSpring size={24} />
-            <Typography>SpringBoot</Typography>
+            <ColoredIcon as={SiSpring} size={24} />
+            <TechTypography>SpringBoot</TechTypography>
           </StackItem>
           <StackItem>
-            <SiGo size={24} />
-            <Typography>Go</Typography>
+            <ColoredIcon as={SiGo} size={24} />
+            <TechTypography>Go</TechTypography>
           </StackItem>
           <StackItem>
-            <SiAmazonaws size={24} />
-            <Typography>AWS</Typography>
+            <ColoredIcon as={SiAmazonaws} size={24} />
+            <TechTypography>AWS</TechTypography>
           </StackItem>
           <StackItem>
-            <SiGooglecloud size={24} />
-            <Typography>GCP</Typography>
+            <ColoredIcon as={SiGooglecloud} size={24} />
+            <TechTypography>GCP</TechTypography>
           </StackItem>
           <StackItem>
-            <SiGithubactions size={24} />
-            <Typography>GitHub Actions</Typography>
+            <ColoredIcon as={SiGithubactions} size={24} />
+            <TechTypography>GitHub Actions</TechTypography>
           </StackItem>
         </StackContainer>
       </Content>

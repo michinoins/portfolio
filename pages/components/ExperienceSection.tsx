@@ -30,6 +30,8 @@ const Content = styled.div`
 
 const SectionTitle = styled(Typography)`
   margin-bottom: 2rem;
+  color: #ffffff;
+  font-family: "Roboto Mono", monospace;
 `;
 
 const CompanyButton = styled.button`
@@ -42,8 +44,9 @@ const CompanyButton = styled.button`
   border-radius: 5px;
   text-align: left;
   transition: all 0.3s ease;
-  background-color: ${({ active }) => (active ? "#1976d2" : "white")};
-  color: ${({ active }) => (active ? "white" : "rgba(0, 0, 0, 0.87)")};
+  background-color: ${({ active }) => (active ? "#1976d2" : "transparent")};
+  color: ${({ active }) => (active ? "white" : "#ffffff")};
+  font-family: "Roboto Mono", monospace;
 
   &:hover {
     background-color: #1976d2;
@@ -53,6 +56,21 @@ const CompanyButton = styled.button`
 
 const AnimatedCardContent = styled(CardContent)`
   animation: 1s ${fadeInAnimation};
+`;
+
+const CustomCard = styled(Card)`
+  border: 1px solid #3cc5ff;
+  background-color: rgba(26, 64, 93, 0.5);
+  border-radius: 15px;
+`;
+
+const CustomCardHeader = styled(CardHeader)`
+  color: #ffffff;
+  font-family: "Roboto Mono", monospace;
+
+  .MuiCardHeader-subheader {
+    color: #ffffff;
+  }
 `;
 
 interface ExperienceSectionProps {
@@ -103,22 +121,36 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ id }) => {
             ))}
           </Grid>
           <Grid item xs={12} sm={8} md={9}>
-            <Card>
-              <CardHeader
+            <CustomCard>
+              <CustomCardHeader
                 title={selectedCompany.position}
                 subheader={selectedCompany.name}
               />
               <AnimatedCardContent>
-                <Typography variant="body2" color="text.secondary">
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  style={{
+                    color: "#ffffff",
+                    fontFamily: '"Roboto Mono", monospace',
+                  }}
+                >
                   {selectedCompany.period}
                 </Typography>
                 {selectedCompany.description.map((item, index) => (
-                  <Typography key={index} variant="body1">
+                  <Typography
+                    key={index}
+                    variant="body1"
+                    style={{
+                      color: "#ffffff",
+                      fontFamily: '"Roboto Mono", monospace',
+                    }}
+                  >
                     - {item}
                   </Typography>
                 ))}
               </AnimatedCardContent>
-            </Card>
+            </CustomCard>
           </Grid>
         </Grid>
       </Content>

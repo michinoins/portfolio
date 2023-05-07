@@ -10,7 +10,6 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-image: linear-gradient(120deg, #1e3f5a, #0f203a);
 `;
 
 const Name = styled(Typography)`
