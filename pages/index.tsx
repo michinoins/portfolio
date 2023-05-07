@@ -13,7 +13,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Header />
-      <HeroSection setIsLoading={setIsLoading} />
+      <HeroSection />
       <AboutSection id="about" />
       <ExperienceSection id="experience" />
       <ProjectSection id="projects" />
