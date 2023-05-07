@@ -43,10 +43,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ setIsLoading }) => {
 
   return (
     <Container>
-      <Name variant="h1">Your Name</Name>
-      <Tagline variant="h2">Your Tagline</Tagline>
+      <Name variant="h1">Mikiya Ichino</Name>
+      <Tagline variant="h2">FullStack Developer</Tagline>
     </Container>
   );
 };
 
-export default HeroSection
+export default HeroSection;
