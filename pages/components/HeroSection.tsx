@@ -7,25 +7,27 @@ const Container = styled.div`
   position: relative;
   height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start; // 変更
+  justify-content: flex-start; // 変更
   flex-direction: column;
+  padding-left: 5rem; // 左のスペースを調整
+  padding-top: 25rem; // 上のスペースを調整
 `;
 
 const Name = styled(Typography)`
   font-family: "Orbitron", sans-serif;
-  font-size: 3rem;
+  font-size: 4rem;
   margin-bottom: 1rem;
   color: #ffffff;
-  text-shadow: 0 0 10px #00f3ff, 0 0 20px #00f3ff, 0 0 30px #00f3ff;
+  text-align: left;
 `;
 
 const Tagline = styled(Typography)`
   font-family: "Orbitron", sans-serif;
-  font-size: 1.5rem;
+  font-size: 4rem;
   margin-bottom: 1rem;
   color: #ffffff;
-  text-shadow: 0 0 10px #00f3ff, 0 0 20px #00f3ff, 0 0 30px #00f3ff;
+  text-align: left;
 `;
 
 const Introduction = styled(Typography)`
@@ -33,17 +35,14 @@ const Introduction = styled(Typography)`
   font-size: 1rem;
   margin-bottom: 1rem;
   color: #ffffff;
-  text-shadow: 0 0 10px #00f3ff, 0 0 20px #00f3ff, 0 0 30px #00f3ff;
+  text-align: left;
 `;
-
-const HiThere = styled(Typography)`
+const Greet = styled(Typography)`
   font-family: "Orbitron", sans-serif;
-  font-size: 1.5rem;
-  position: absolute;
-  left: 1rem;
-  top: 1rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
   color: #ffffff;
-  text-shadow: 0 0 10px #00f3ff, 0 0 20px #00f3ff, 0 0 30px #00f3ff;
+  text-align: left;
 `;
 
 const HeroSection: React.FC = () => {
@@ -54,11 +53,19 @@ const HeroSection: React.FC = () => {
           @import url("https://fonts.googleapis.com/css?family=Orbitron&display=swap");
         `}
       />
-      <HiThere variant="h4">Hi, There</HiThere>
-      <Name variant="h1">Mikiya Ichino</Name>
-      <Tagline variant="h2">FullStack Developer</Tagline>
+      <Greet>Hi, my name is </Greet>
+      <Name variant="h1">Mikiya Ichino.</Name>
+      <Tagline variant="h1">Crafting digital magic</Tagline>
       <Introduction variant="h4">
-        I love creating beautiful, responsive, and user-friendly websites.
+        I love creating beautiful, responsive, and user-friendly websites. With
+        a passion for both design and functionality,
+        <br />
+        I bring ideas to life. My expertise spans multiple languages and
+        frameworks, ensuring versatile solutions.
+        <br />
+        Driven by curiosity, I'm always eager to learn and explore new
+        technologies. Collaborating with diverse teams,
+        <br />I strive to deliver exceptional digital experiences.
       </Introduction>
     </Container>
   );
