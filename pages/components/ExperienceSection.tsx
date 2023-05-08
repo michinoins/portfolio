@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Typography, Card, CardContent, CardHeader, Grid } from "@mui/material";
+import {
+  Typography,
+  Card,
+  CardContent,
+  CardHeader,
+  Grid,
+  Box,
+} from "@mui/material";
+import { School, Work } from "@mui/icons-material";
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
 import { useInView } from "react-intersection-observer";
@@ -35,7 +43,7 @@ const Section = styled.section`
 `;
 
 const Content = styled.div`
-  max-width: 800px;
+  max-width: 1100px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -50,7 +58,8 @@ const SectionTitle = styled(Typography)`
 `;
 
 const CompanyButton = styled.button`
-  display: block;
+  display: flex;
+  align-items: center;
   width: 100%;
   padding: 0.5rem 1rem;
   margin-bottom: 1rem;
@@ -71,20 +80,15 @@ const CompanyButton = styled.button`
 
 const AnimatedCardContent = styled(CardContent)`
   animation: 1s ${switchAnimation};
+  height: 200px; // min-heightをheightに変更
+  overflow-y: auto; // overflow-yを追加してスクロール可能にする
 `;
 
 const CustomCard = styled(Card)`
   background-color: rgba(26, 64, 93, 0.5);
   border-radius: 15px;
-`;
-
-const CustomCardHeader = styled(CardHeader)`
-  color: #ffffff;
-  font-family: "Roboto Mono", monospace;
-
-  .MuiCardHeader-subheader {
-    color: #ffffff;
-  }
+  height: 350px;
+  min-width: 500px;
 `;
 
 const JobDescription = styled(Typography)`
@@ -93,7 +97,8 @@ const JobDescription = styled(Typography)`
   color: #ffffff;
   font-family: "Roboto Mono", monospace;
   padding: 0.5rem 0;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  overflow-wrap: break-word;
 
   &::before {
     content: "";
@@ -104,6 +109,15 @@ const JobDescription = styled(Typography)`
     border-bottom: 5px solid transparent;
     border-left: 8px solid #3cc5ff;
     margin-right: 25px;
+  }
+`;
+
+const CustomCardHeader = styled(CardHeader)`
+  color: #ffffff;
+  font-family: "Roboto Mono", monospace;
+
+  .MuiCardHeader-subheader {
+    color: #ffffff;
   }
 `;
 
@@ -127,52 +141,63 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ id }) => {
 
   const companies = [
     {
-      name: "Company A",
-      position: "Front-end Developer",
-      period: "January 2021 - Present",
+      name: "SixFactor.Inc(Vancouver, Canada)",
+      position: "FullStack Developer",
+      period: "October 2022 - February 2023",
       description: [
-        "Developed and maintained responsive web applications using React, Next.js, and TypeScript.",
-        "Collaborated with designers to implement visually appealing designs and user interfaces.",
-        "Optimized website performance and user experience using best practices and performance analysis tools.",
+        "Designed technical solutions to ensure seamless feature integration by considering database relations,business rules, and accurately scoping the affected range.",
+        "Succeeded in enhancing code quality and minimizing bug incidents by executing testing strategies using Jest.",
+        "Improved frontend code quality through refactoring, resulting in enhanced user experience",
       ],
     },
     {
-      name: "Company B",
-      position: "Back-end Developer",
-      period: "April 2020 - December 2020",
+      name: "TeamLab.Inc(Tokyo, Japan)",
+      position: "FullStack Lead Developer",
+      period: "June 2021 - October 2022",
       description: [
-        "Developed and maintained server-side applications using Node.js, Express, and MongoDB.",
-        "Implemented RESTful APIs for various web applications.",
-        "Collaborated with front-end developers to integrate APIs with user interfaces.",
+        "Led a high-performing team of three members in the operation and maintenance phases to accomplish assigned business objectives while staying within budget.",
+        "Automated manual tasks with AWS lambda and AWS EventBridge ",
+        "Designed and Developed REST APIs and frontends components to accelerate project completion tasks",
       ],
     },
     {
-      name: "Company C",
+      name: "TeamLab.Inc(Tokyo, Japan)",
       position: "Back-end Developer",
-      period: "April 2020 - December 2020",
+      period: "April 2020 - May 2021",
       description: [
-        "Developed and maintained server-side applications using Node.js, Express, and MongoDB.",
-        "Implemented RESTful APIs for various web applications.",
+        "Designed and developed Restful APIs, Batches with tests in Junit using Java, Kotlin,and SpringBoot",
+        "Conducted Internal coupling tests to squash bugs during development.",
         "Collaborated with front-end developers to integrate APIs with user interfaces.",
+        "Automated testing and deployment using Github Actions and Jenkins",
       ],
     },
     {
-      name: "Company D",
-      position: "Back-end Developer",
-      period: "April 2020 - December 2020",
+      name: "University of Tsukuba (Ibaraki, Japan)",
+      position: "Bachelor of Computer Science",
+      period: "April 2018 - March 2020",
       description: [
-        "Developed and maintained server-side applications using Node.js, Express, and MongoDB.",
-        "Implemented RESTful APIs for various web applications.",
-        "Collaborated with front-end developers to integrate APIs with user interfaces.",
+        "Volleyball club member",
+        "English Speech Contest club member",
+        "Developed personal tools using JavaScript",
+      ],
+    },
+    {
+      name: "University of Iwate (Iwate, Japan)",
+      position: "Bachelor of Computer Science(transferred)",
+      period: "April 2016 - March 2018",
+      description: [
+        "Volleyball club member",
+        "International exchange club member",
       ],
     },
   ];
+
   const selectedCompany = companies[selectedCompanyIndex];
 
   return (
     <Section id={id} ref={ref} isVisible={isVisible}>
       <Content>
-        <SectionTitle variant="h5">Experience</SectionTitle>
+        <SectionTitle variant="h5">Experience&Education</SectionTitle>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={4} md={3}>
             {companies.map((company, index) => (
@@ -181,6 +206,16 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ id }) => {
                 onClick={() => setSelectedCompanyIndex(index)}
                 active={selectedCompanyIndex === index}
               >
+                {company.type === "education" ? (
+                  <School
+                    sx={{
+                      marginRight: 1,
+                      color: company.type === "education" ? "#8B4513" : null,
+                    }}
+                  />
+                ) : (
+                  <Work sx={{ marginRight: 1 }} />
+                )}
                 {company.name}
               </CompanyButton>
             ))}
