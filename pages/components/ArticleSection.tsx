@@ -12,7 +12,7 @@ const Section = styled.section`
   flex-wrap: wrap;
   padding: 3rem 0;
   opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
-  transition: opacity 1s ease-in-out;
+  transition: opacity 2s ease-in-out;
 `;
 
 const Content = styled.div`

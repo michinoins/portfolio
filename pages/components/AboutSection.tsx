@@ -21,7 +21,8 @@ const Section = styled.section`
   align-items: center;
   padding: 3rem 0;
   opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
-  transition: opacity 1s ease-in-out;
+  transition: opacity 2s ease-in-out;
+  margin: 50px 0;
 `;
 
 const ProfileImage = styled.img`
