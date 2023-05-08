@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Typography, Card, CardContent, CardHeader, Grid } from "@mui/material";
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
+import { useInView } from "react-intersection-observer";
 
 const fadeInAnimation = keyframes`
   from {
@@ -17,6 +18,8 @@ const Section = styled.section`
   justify-content: center;
   align-items: center;
   padding: 3rem 0;
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  transition: opacity 1s ease-in-out;
 `;
 
 const Content = styled.div`
@@ -78,6 +81,16 @@ interface ExperienceSectionProps {
 }
 
 const ExperienceSection: React.FC<ExperienceSectionProps> = ({ id }) => {
+  const { ref, inView } = useInView({
+    threshold: 0.1,
+  });
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (inView) {
+      setIsVisible(true);
+    }
+  }, [inView]);
   const [selectedCompanyIndex, setSelectedCompanyIndex] = useState(0);
 
   const companies = [
@@ -105,7 +118,7 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ id }) => {
   const selectedCompany = companies[selectedCompanyIndex];
 
   return (
-    <Section id={id}>
+    <Section id={id} ref={ref} isVisible={isVisible}>
       <Content>
         <SectionTitle variant="h4">Experience</SectionTitle>
         <Grid container spacing={3}>

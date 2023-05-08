@@ -1,7 +1,8 @@
-import React from "react";
 import { Typography } from "@mui/material";
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
+import React, { useEffect, useState } from "react";
+import { useInView } from "react-intersection-observer";
 
 const fadeInAnimation = keyframes`
   from {
@@ -17,6 +18,8 @@ const Section = styled.section`
   justify-content: center;
   align-items: center;
   padding: 3rem 0;
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  transition: opacity 1s ease-in-out;
 `;
 
 const Content = styled.div`
@@ -63,6 +66,18 @@ interface ProjectSectionProps {
 }
 
 const ProjectSection: React.FC<ProjectSectionProps> = ({ id }) => {
+  const { ref, inView } = useInView({
+    threshold: 0.1,
+  });
+
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (inView) {
+      setIsVisible(true);
+    }
+  }, [inView]);
+
   const projects = [
     {
       title: "Project 1",
@@ -85,7 +100,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({ id }) => {
   ];
 
   return (
-    <Section id={id}>
+    <Section id={id} ref={ref} isVisible={isVisible}>
       <Content>
         <SectionTitle variant="h4">Projects</SectionTitle>
         <List>

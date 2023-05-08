@@ -1,17 +1,9 @@
-import React from "react";
 import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
 import { AiFillBook } from "react-icons/ai";
-
-const fadeInAnimation = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-`;
+import { useInView } from "react-intersection-observer";
+import React, { useEffect, useState } from "react";
 
 const Section = styled.section`
   display: flex;
@@ -19,6 +11,8 @@ const Section = styled.section`
   align-items: center;
   flex-wrap: wrap;
   padding: 3rem 0;
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  transition: opacity 1s ease-in-out;
 `;
 
 const Content = styled.div`
@@ -78,6 +72,18 @@ interface ArticleSectionProps {
 }
 
 const ArticleSection: React.FC<ArticleSectionProps> = ({ id }) => {
+  const { ref, inView } = useInView({
+    threshold: 0.1,
+  });
+
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (inView) {
+      setIsVisible(true);
+    }
+  }, [inView]);
+
   const articles = [
     {
       title: "Article 1",
@@ -100,7 +106,7 @@ const ArticleSection: React.FC<ArticleSectionProps> = ({ id }) => {
   ];
 
   return (
-    <Section id={id}>
+    <Section id={id} ref={ref} isVisible={isVisible}>
       <Content>
         <SectionTitle variant="h4">Articles & Blogs</SectionTitle>
         <CardContainer>

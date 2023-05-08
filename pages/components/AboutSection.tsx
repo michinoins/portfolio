@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Typography } from "@mui/material";
 import styled from "@emotion/styled";
-
 import {
   SiJavascript,
   SiReact,
@@ -14,12 +13,15 @@ import {
   SiGooglecloud,
   SiGithubactions,
 } from "react-icons/si";
+import { useInView } from "react-intersection-observer";
 
 const Section = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 3rem 0;
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  transition: opacity 1s ease-in-out;
 `;
 
 const ProfileImage = styled.img`
@@ -79,8 +81,20 @@ interface AboutSectionProps {
 }
 
 const AboutSection: React.FC<AboutSectionProps> = ({ id }) => {
+  const { ref, inView } = useInView({
+    threshold: 0.1,
+  });
+
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (inView) {
+      setIsVisible(true);
+    }
+  }, [inView]);
+
   return (
-    <Section id={id}>
+    <Section id={id} ref={ref} isVisible={isVisible}>
       <Content>
         <SectionTitle variant="h4">About Me</SectionTitle>
         <Paragraph>
@@ -99,7 +113,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ id }) => {
           </StackItem>
           <StackItem>
             <ColoredIcon as={SiReact} size={24} />
-            <TechTypography>React.js</TechTypography>
+            <TechTypography>React</TechTypography>
           </StackItem>
           <StackItem>
             <ColoredIcon as={SiTypescript} size={24} />
@@ -115,7 +129,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ id }) => {
           </StackItem>
           <StackItem>
             <ColoredIcon as={SiSpring} size={24} />
-            <TechTypography>SpringBoot</TechTypography>
+            <TechTypography>Spring</TechTypography>
           </StackItem>
           <StackItem>
             <ColoredIcon as={SiGo} size={24} />
