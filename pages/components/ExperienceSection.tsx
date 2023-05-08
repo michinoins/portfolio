@@ -12,6 +12,16 @@ const fadeInAnimation = keyframes`
     opacity: 1;
   }
 `;
+const switchAnimation = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 const Section = styled.section`
   display: flex;
@@ -19,9 +29,8 @@ const Section = styled.section`
   align-items: center;
   padding: 3rem 0;
   opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
-  transition: opacity 2s ease-in-out;
-  margin: 50px 0; 
-
+  transition: opacity 1.7s ease-in-out;
+  margin: 150px 0;
 `;
 
 const Content = styled.div`
@@ -60,11 +69,10 @@ const CompanyButton = styled.button`
 `;
 
 const AnimatedCardContent = styled(CardContent)`
-  animation: 1s ${fadeInAnimation};
+  animation: 1s ${switchAnimation};
 `;
 
 const CustomCard = styled(Card)`
-  border: 1px solid #3cc5ff;
   background-color: rgba(26, 64, 93, 0.5);
   border-radius: 15px;
 `;
@@ -78,6 +86,26 @@ const CustomCardHeader = styled(CardHeader)`
   }
 `;
 
+const JobDescription = styled(Typography)`
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  font-family: "Roboto Mono", monospace;
+  padding: 0.5rem 0;
+  font-size: 0.8rem;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 8px solid #3cc5ff;
+    margin-right: 25px;
+  }
+`;
+
 interface ExperienceSectionProps {
   id: string;
 }
@@ -86,6 +114,7 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ id }) => {
   const { ref, inView } = useInView({
     threshold: 0.1,
   });
+
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -116,13 +145,33 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ id }) => {
         "Collaborated with front-end developers to integrate APIs with user interfaces.",
       ],
     },
+    {
+      name: "Company C",
+      position: "Back-end Developer",
+      period: "April 2020 - December 2020",
+      description: [
+        "Developed and maintained server-side applications using Node.js, Express, and MongoDB.",
+        "Implemented RESTful APIs for various web applications.",
+        "Collaborated with front-end developers to integrate APIs with user interfaces.",
+      ],
+    },
+    {
+      name: "Company D",
+      position: "Back-end Developer",
+      period: "April 2020 - December 2020",
+      description: [
+        "Developed and maintained server-side applications using Node.js, Express, and MongoDB.",
+        "Implemented RESTful APIs for various web applications.",
+        "Collaborated with front-end developers to integrate APIs with user interfaces.",
+      ],
+    },
   ];
   const selectedCompany = companies[selectedCompanyIndex];
 
   return (
     <Section id={id} ref={ref} isVisible={isVisible}>
       <Content>
-        <SectionTitle variant="h4">Experience</SectionTitle>
+        <SectionTitle variant="h5">Experience</SectionTitle>
         <Grid container spacing={3}>
           <Grid item xs={12} sm={4} md={3}>
             {companies.map((company, index) => (
@@ -153,16 +202,9 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ id }) => {
                   {selectedCompany.period}
                 </Typography>
                 {selectedCompany.description.map((item, index) => (
-                  <Typography
-                    key={index}
-                    variant="body1"
-                    style={{
-                      color: "#ffffff",
-                      fontFamily: '"Roboto Mono", monospace',
-                    }}
-                  >
-                    - {item}
-                  </Typography>
+                  <JobDescription key={index} variant="body1">
+                    {item}
+                  </JobDescription>
                 ))}
               </AnimatedCardContent>
             </CustomCard>

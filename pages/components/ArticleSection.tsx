@@ -12,7 +12,7 @@ const Section = styled.section`
   flex-wrap: wrap;
   padding: 3rem 0;
   opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
-  transition: opacity 2s ease-in-out;
+  transition: opacity 1.7s ease-in-out;
 `;
 
 const Content = styled.div`
@@ -108,7 +108,7 @@ const ArticleSection: React.FC<ArticleSectionProps> = ({ id }) => {
   return (
     <Section id={id} ref={ref} isVisible={isVisible}>
       <Content>
-        <SectionTitle variant="h4">Articles & Blogs</SectionTitle>
+        <SectionTitle variant="h5">Articles & Blogs</SectionTitle>
         <CardContainer>
           {articles.map((article, index) => (
             <StyledCard key={index}>

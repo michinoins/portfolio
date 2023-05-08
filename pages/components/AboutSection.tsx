@@ -21,7 +21,7 @@ const Section = styled.section`
   align-items: center;
   padding: 3rem 0;
   opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
-  transition: opacity 2s ease-in-out;
+  transition: opacity 1.7s ease-in-out;
   margin: 50px 0;
 `;
 
@@ -97,7 +97,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ id }) => {
   return (
     <Section id={id} ref={ref} isVisible={isVisible}>
       <Content>
-        <SectionTitle variant="h4">About Me</SectionTitle>
+        <SectionTitle variant="h5">About Me</SectionTitle>
         <Paragraph>
           Hello! My name is Mikiya, and I'm a FullStack developer with a passion
           for creating beautiful, responsive, and user-friendly websites. I have

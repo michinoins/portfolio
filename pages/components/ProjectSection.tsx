@@ -19,8 +19,8 @@ const Section = styled.section`
   align-items: center;
   padding: 3rem 0;
   opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
-  transition: opacity 2s ease-in-out;
-  margin: 50px 0;
+  transition: opacity 1.7s ease-in-out;
+  margin: 150px 0;
 `;
 
 const Content = styled.div`
@@ -103,7 +103,7 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({ id }) => {
   return (
     <Section id={id} ref={ref} isVisible={isVisible}>
       <Content>
-        <SectionTitle variant="h4">Projects</SectionTitle>
+        <SectionTitle variant="h5">Projects</SectionTitle>
         <List>
           {projects.map((project, index) => (
             <ListItem key={index}>
