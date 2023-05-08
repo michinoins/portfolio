@@ -14,6 +14,7 @@ const Section = styled.section`
 const SectionTitle = styled(Typography)`
   margin-bottom: 2rem;
   text-align: center;
+  color: #ffffff;
 `;
 
 const SocialIcons = styled.div`

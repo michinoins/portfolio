@@ -1,4 +1,3 @@
-// src/components/ProjectSection.tsx
 import React from "react";
 import { Typography } from "@mui/material";
 import styled from "@emotion/styled";
@@ -31,6 +30,7 @@ const Content = styled.div`
 
 const SectionTitle = styled(Typography)`
   margin-bottom: 2rem;
+  color: #ffffff;
 `;
 
 const List = styled.ul`
@@ -50,14 +50,12 @@ const ListItem = styled.li`
 
 const ListItemTitle = styled(Typography)`
   font-weight: bold;
-`;
-
-const ListItemSubtitle = styled(Typography)`
-  color: #1976d2;
+  color: #ffffff;
 `;
 
 const ListItemDescription = styled(Typography)`
   text-align: justify;
+  color: #ffffff;
 `;
 
 interface ProjectSectionProps {

@@ -31,6 +31,7 @@ const Content = styled.div`
 
 const SectionTitle = styled(Typography)`
   margin-bottom: 2rem;
+  color: #ffffff;
 `;
 
 const CardContainer = styled.div`
@@ -52,6 +53,7 @@ const StyledCard = styled(Card)`
 
 const CardTitle = styled(Typography)`
   font-weight: bold;
+  color: #ffffff;
 `;
 
 const CardSubtitle = styled(Typography)`
@@ -62,6 +64,7 @@ const CardDescription = styled(Typography)`
   text-align: justify;
   height: 100%;
   overflow: hidden;
+  color: #333;
 `;
 
 const IconContainer = styled.div`
