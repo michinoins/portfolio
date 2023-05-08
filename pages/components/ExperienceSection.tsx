@@ -26,6 +26,7 @@ const switchAnimation = keyframes`
 const Section = styled.section`
   display: flex;
   justify-content: center;
+
   align-items: center;
   padding: 3rem 0;
   opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
@@ -44,7 +45,7 @@ const Content = styled.div`
 
 const SectionTitle = styled(Typography)`
   margin-bottom: 2rem;
-  color: #ffffff;
+  color: #b3ffff;
   font-family: "Roboto Mono", monospace;
 `;
 

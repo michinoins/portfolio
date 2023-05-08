@@ -25,7 +25,7 @@ const Content = styled.div`
 
 const SectionTitle = styled(Typography)`
   margin-bottom: 2rem;
-  color: #ffffff;
+  color: #b3ffff;
 `;
 
 const CardContainer = styled.div`

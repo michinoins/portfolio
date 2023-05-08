@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Typography } from "@mui/material";
 import styled from "@emotion/styled";
 import {
+  SiHtml5,
+  SiCss3,
+  SiJunit5,
   SiJavascript,
   SiReact,
   SiTypescript,
@@ -43,7 +46,7 @@ const Content = styled.div`
 
 const SectionTitle = styled(Typography)`
   margin-bottom: 2rem;
-  color: #ffffff;
+  color: #b3ffff;
   font-family: "Roboto", sans-serif;
 `;
 
@@ -109,6 +112,14 @@ const AboutSection: React.FC<AboutSectionProps> = ({ id }) => {
         <SectionTitle variant="h5">Technical Stack</SectionTitle>
         <StackContainer>
           <StackItem>
+            <ColoredIcon as={SiHtml5} size={24} />
+            <TechTypography>HTML</TechTypography>
+          </StackItem>
+          <StackItem>
+            <ColoredIcon as={SiCss3} size={24} />
+            <TechTypography>CSS</TechTypography>
+          </StackItem>
+          <StackItem>
             <ColoredIcon as={SiJavascript} size={24} />
             <TechTypography>JavaScript</TechTypography>
           </StackItem>
@@ -127,6 +138,10 @@ const AboutSection: React.FC<AboutSectionProps> = ({ id }) => {
           <StackItem>
             <ColoredIcon as={SiKotlin} size={24} />
             <TechTypography>Kotlin</TechTypography>
+          </StackItem>
+          <StackItem>
+            <ColoredIcon as={SiJunit5} size={24} />
+            <TechTypography>Junit5</TechTypography>
           </StackItem>
           <StackItem>
             <ColoredIcon as={SiSpring} size={24} />
