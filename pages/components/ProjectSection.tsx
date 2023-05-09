@@ -1,8 +1,14 @@
-import { Typography, Card, CardContent, CardMedia } from "@mui/material";
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
 import React, { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
+import {
+  Typography,
+  Card,
+  CardContent,
+  CardMedia,
+  Link as MuiLink,
+} from "@mui/material";
 
 const fadeInAnimation = keyframes`
   from {
@@ -11,6 +17,12 @@ const fadeInAnimation = keyframes`
   to {
     opacity: 1;
   }
+`;
+const Link = styled(MuiLink)`
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  width: 100%;
 `;
 
 const Section = styled.section<{ isVisible: boolean }>`
@@ -123,18 +135,21 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({ id }) => {
       description: "Role: Backend / Frontend Engineer",
       imageUrl: "/livable.png",
       companyName: "@TeamLab",
+      link: "https://www.team-lab.com/livable/",
     },
     {
       title: "IoT Device Operation Mobile App",
       description: "Role: Backend Engineer",
       imageUrl: "/rinnai.png",
       companyName: "@TeamLab",
+      link: "https://www.team-lab.com/rinnaiapp/",
     },
     {
       title: "Portfolio Website",
       description: "...",
       imageUrl: "/portfolio.png",
       companyName: "Personal Project",
+      link: "",
     },
   ];
 
@@ -145,10 +160,16 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({ id }) => {
         <List>
           {projects.map((project, index) => (
             <ProjectCard key={index} title={project.title}>
-              <ProjectCardContent>
-                <CompanyName>{project.companyName}</CompanyName>
-                <ProjectCardMedia image={project.imageUrl} />
-              </ProjectCardContent>
+              <Link
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ProjectCardContent>
+                  <CompanyName>{project.companyName}</CompanyName>
+                  <ProjectCardMedia image={project.imageUrl} />
+                </ProjectCardContent>
+              </Link>
             </ProjectCard>
           ))}
         </List>

@@ -35,14 +35,9 @@ const ContactSection: React.FC<ContactSectionProps> = ({ id }) => {
     <Section id={id}>
       <SectionTitle variant="h4">Contact</SectionTitle>
       <SocialIcons>
-        <Tooltip title="Email">
-          <SocialIconButton href="mailto:your.email@example.com">
-            <EmailIcon fontSize="large" />
-          </SocialIconButton>
-        </Tooltip>
         <Tooltip title="LinkedIn">
           <SocialIconButton
-            href="https://www.linkedin.com/in/yourusername/"
+            href="https://www.linkedin.com/in/ichinomikiya/"
             target="_blank"
           >
             <LinkedInIcon fontSize="large" />
@@ -50,18 +45,10 @@ const ContactSection: React.FC<ContactSectionProps> = ({ id }) => {
         </Tooltip>
         <Tooltip title="GitHub">
           <SocialIconButton
-            href="https://github.com/yourusername"
+            href="https://github.com/michinoins"
             target="_blank"
           >
             <GitHubIcon fontSize="large" />
-          </SocialIconButton>
-        </Tooltip>
-        <Tooltip title="Twitter">
-          <SocialIconButton
-            href="https://twitter.com/yourusername"
-            target="_blank"
-          >
-            <TwitterIcon fontSize="large" />
           </SocialIconButton>
         </Tooltip>
       </SocialIcons>
