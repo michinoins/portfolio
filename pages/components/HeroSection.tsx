@@ -70,7 +70,7 @@ const HeroSection: React.FC = () => {
         I bring ideas to life. My expertise spans multiple languages and
         frameworks, ensuring versatile solutions.
         <br />
-        Driven by curiosity, I'm always eager to learn and explore new
+        Driven by curiosity, I&apos;m always eager to learn and explore new
         technologies. Collaborating with diverse teams,
         <br />I strive to deliver exceptional digital experiences.
       </Introduction>

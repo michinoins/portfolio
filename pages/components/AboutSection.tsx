@@ -17,8 +17,9 @@ import {
   SiGithubactions,
 } from "react-icons/si";
 import { useInView } from "react-intersection-observer";
+import { IconType } from "react-icons";
 
-const Section = styled.section`
+const Section = styled.section<{ isVisible: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -75,9 +76,9 @@ const TechTypography = styled(Typography)`
   font-size: 16px;
   text-shadow: 0 0 2px #ffffff, 0 0 4px #3cc5ff;
 `;
-
-const ColoredIcon = styled.svg`
+const ColoredIcon = styled.svg<{ as: IconType; size: number }>`
   color: #3cc5ff;
+  ${({ size }) => size && `font-size: ${size}px;`}
 `;
 
 interface AboutSectionProps {
@@ -102,12 +103,13 @@ const AboutSection: React.FC<AboutSectionProps> = ({ id }) => {
       <Content>
         <SectionTitle variant="h5">About Me</SectionTitle>
         <Paragraph>
-          Hello! My name is Mikiya, and I'm a FullStack developer with a passion
-          for creating beautiful, responsive, and user-friendly websites. I have
-          experience working with HTML, CSS, JavaScript, React, and Next.js. I'm
-          always eager to learn new technologies and improve my skills. In my
-          spare time, I enjoy reading about web development, exploring new
-          libraries and frameworks, and contributing to open-source projects.
+          Hello! My name is Mikiya, and I&apos;m a FullStack developer with a
+          passion for creating beautiful, responsive, and user-friendly
+          websites. I have experience working with HTML, CSS, JavaScript, React,
+          and Next.js. I&apos;m always eager to learn new technologies and
+          improve my skills. In my spare time, I enjoy reading about web
+          development, exploring new libraries and frameworks, and contributing
+          to open-source projects.
         </Paragraph>
         <SectionTitle variant="h5">Technical Stack</SectionTitle>
         <StackContainer>
