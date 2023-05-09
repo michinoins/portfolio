@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Typography, Card, CardContent, CardMedia } from "@mui/material";
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
 import React, { useEffect, useState } from "react";
@@ -24,12 +24,11 @@ const Section = styled.section`
 `;
 
 const Content = styled.div`
-  max-width: 800px;
+  max-width: 1100px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  margin-right: 3rem;
 `;
 
 const SectionTitle = styled(Typography)`
@@ -41,15 +40,51 @@ const List = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
 `;
 
-const ListItem = styled.li`
-  animation: 1s ${fadeInAnimation};
+const ProjectCard = styled(Card)`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  margin-bottom: 1rem;
+  max-width: 45%;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  &:hover::after {
+    opacity: 1;
+  }
+  &::after {
+    content: ${({ title }) => `"${title}"`};
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+`;
+
+const ProjectCardMedia = styled(CardMedia)`
+  height: 200px;
+  width: 500px;
+`;
+
+const ProjectCardContent = styled(CardContent)`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 const ListItemTitle = styled(Typography)`
@@ -59,7 +94,13 @@ const ListItemTitle = styled(Typography)`
 
 const ListItemDescription = styled(Typography)`
   text-align: justify;
-  color: #ffffff;
+  color: #000000;
+`;
+
+const CompanyName = styled(Typography)`
+  margin-bottom: 0.8rem;
+  font-weight: bold;
+  color: #1976d2;
 `;
 
 interface ProjectSectionProps {
@@ -81,22 +122,22 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({ id }) => {
 
   const projects = [
     {
-      title: "Project 1",
-      description:
-        "This is a sample project that demonstrates my skills in front-end development using React, Redux, and Material UI.",
-      technologies: ["React", "Redux", "Material UI"],
+      title: "Real Estate Management System",
+      description: "Role: Backend / Frontend Engineer",
+      imageUrl: "/livable.png",
+      companyName: "@TeamLab",
     },
     {
-      title: "Project 2",
-      description:
-        "This is a sample project that demonstrates my skills in back-end development using Node.js, Express, and MongoDB.",
-      technologies: ["Node.js", "Express", "MongoDB"],
+      title: "IoT Device Operation Mobile App",
+      description: "Role: Backend Engineer",
+      imageUrl: "/rinnai.png",
+      companyName: "@TeamLab",
     },
     {
-      title: "Project 3",
-      description:
-        "This is a sample project that demonstrates my skills in mobile app development using React Native.",
-      technologies: ["React Native"],
+      title: "Portfolio Website",
+      description: "...",
+      imageUrl: "/portfolio.png",
+      companyName: "Personal Project",
     },
   ];
 
@@ -106,10 +147,12 @@ const ProjectSection: React.FC<ProjectSectionProps> = ({ id }) => {
         <SectionTitle variant="h5">Projects</SectionTitle>
         <List>
           {projects.map((project, index) => (
-            <ListItem key={index}>
-              <ListItemTitle variant="h5">{project.title}</ListItemTitle>
-              <ListItemDescription>{project.description}</ListItemDescription>
-            </ListItem>
+            <ProjectCard key={index} title={project.title}>
+              <ProjectCardContent>
+                <CompanyName>{project.companyName}</CompanyName>
+                <ProjectCardMedia image={project.imageUrl} />
+              </ProjectCardContent>
+            </ProjectCard>
           ))}
         </List>
       </Content>
