@@ -28,7 +28,7 @@ const Home: NextPage = () => {
       <MainContent>
         <HeroSection />
         <AboutSection id="about" />
-        <ExperienceSection id="experience" />
+        <ExperienceSection id="education&experience" />
         <ProjectSection id="projects" />
         <ArticleSection id="articles" />
         <ContactSection id="contact" />
