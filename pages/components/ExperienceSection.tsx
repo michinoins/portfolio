@@ -87,7 +87,7 @@ const AnimatedCardContent = styled(CardContent)`
 const CustomCard = styled(Card)`
   background-color: rgba(26, 64, 93, 0.5);
   border-radius: 15px;
-  height: 350px;
+  height: 300px;
   min-width: 500px;
 `;
 
@@ -165,7 +165,7 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ id }) => {
       position: "Back-end Developer",
       period: "April 2020 - May 2021",
       description: [
-        "Designed and developed Restful APIs, Batches with tests in Junit using Java, Kotlin,and SpringBoot",
+        "Designed and developed Restful APIs, Batches with unit tests in Junit using Java, Kotlin,and SpringBoot.",
         "Conducted Internal coupling tests to squash bugs during development.",
         "Collaborated with front-end developers to integrate APIs with user interfaces.",
         "Automated testing and deployment using Github Actions and Jenkins",
@@ -176,9 +176,9 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ id }) => {
       position: "Bachelor of Computer Science",
       period: "April 2018 - March 2020",
       description: [
-        "Volleyball club member",
-        "English Speech Contest club member",
-        "Developed personal tools using JavaScript",
+        "As a Volleyball Club member, I played as an Opposite Hitter and contributed significantly to the team's score in games. 🏐",
+        "Member of the English Speech Contest Club, taking part in several competitions and improving my public speaking skills. 🎤",
+        "Created personal tools using JavaScript and LINE SDK, exploring various programming languages such as Prolog, Solidity, Java, and Python during coursework.",
       ],
     },
     {
@@ -186,8 +186,8 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ id }) => {
       position: "Bachelor of Computer Science(transferred)",
       period: "April 2016 - March 2018",
       description: [
-        "Volleyball club member",
-        "International exchange club member",
+        "Participated in the International Exchange Club, where I collaborated with international students to sell country-specific food at cultural festivals.🇯🇵🌍",
+        "Gained foundational knowledge of programming through studying C language and Java",
       ],
     },
   ];
