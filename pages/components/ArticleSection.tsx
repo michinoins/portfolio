@@ -11,7 +11,7 @@ import { AiFillBook } from "react-icons/ai";
 import { useInView } from "react-intersection-observer";
 import React, { useEffect, useState } from "react";
 
-const Section = styled.section`
+const Section = styled.section<{ isVisible: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;

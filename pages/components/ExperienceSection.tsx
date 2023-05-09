@@ -31,7 +31,7 @@ const switchAnimation = keyframes`
   }
 `;
 
-const Section = styled.section`
+const Section = styled.section<{ isVisible: boolean }>`
   display: flex;
   justify-content: center;
 
@@ -57,7 +57,7 @@ const SectionTitle = styled(Typography)`
   font-family: "Roboto Mono", monospace;
 `;
 
-const CompanyButton = styled.button`
+const CompanyButton = styled.button<{ active: boolean }>`
   display: flex;
   align-items: center;
   width: 100%;

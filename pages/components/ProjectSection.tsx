@@ -13,7 +13,7 @@ const fadeInAnimation = keyframes`
   }
 `;
 
-const Section = styled.section`
+const Section = styled.section<{ isVisible: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
