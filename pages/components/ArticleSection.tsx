@@ -1,4 +1,10 @@
-import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
+import {
+  Card,
+  CardActionArea,
+  CardContent,
+  Typography,
+  CardMedia,
+} from "@mui/material";
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
 import { AiFillBook } from "react-icons/ai";
@@ -47,7 +53,7 @@ const StyledCard = styled(Card)`
 
 const CardTitle = styled(Typography)`
   font-weight: bold;
-  color: #ffffff;
+  color: #1976d2;
 `;
 
 const CardSubtitle = styled(Typography)`
@@ -56,6 +62,7 @@ const CardSubtitle = styled(Typography)`
 
 const CardDescription = styled(Typography)`
   text-align: justify;
+  font-size: 0.9rem;
   height: 100%;
   overflow: hidden;
   color: #333;
@@ -86,22 +93,11 @@ const ArticleSection: React.FC<ArticleSectionProps> = ({ id }) => {
 
   const articles = [
     {
-      title: "Article 1",
-      subtitle: "Published on Medium - January 1, 2023",
+      title: "Build a CRUD App with Clean Architecture",
+      subtitle: "Published on Dev.io - May 6, 2023",
       description:
-        "This is a sample article about front-end development best practices and tips to improve the performance of your React applications.",
-    },
-    {
-      title: "Article 2",
-      subtitle: "Published on Dev.to - February 15, 2023",
-      description:
-        "This is a sample article about implementing RESTful APIs using Node.js, Express, and MongoDB.",
-    },
-    {
-      title: "Article 3",
-      subtitle: "Published on My Personal Blog - March 20, 2023",
-      description:
-        "This is a sample article about developing mobile applications using React Native and best practices for optimizing their performance.",
+        "In this article, I demonstrate how to create a CRUD API using Clean Architecture, with MySQL as the database, Echo as the framework, and GORM as the ORM.",
+      link: "https://dev.to/michinoins/building-a-crud-app-with-mysql-gorm-echo-and-clean-architecture-in-go-h6d",
     },
   ];
 
@@ -112,12 +108,12 @@ const ArticleSection: React.FC<ArticleSectionProps> = ({ id }) => {
         <CardContainer>
           {articles.map((article, index) => (
             <StyledCard key={index}>
-              <CardActionArea>
+              <CardActionArea href={article.link} target="_blank">
                 <CardContent>
                   <IconContainer>
-                    <AiFillBook size={24} />
-                    <CardTitle variant="h5">{article.title}</CardTitle>
+                    <AiFillBook size={48} />
                   </IconContainer>
+                  <CardTitle variant="h5">{article.title}</CardTitle>
                   <CardSubtitle variant="subtitle1">
                     {article.subtitle}
                   </CardSubtitle>
