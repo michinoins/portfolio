@@ -1,29 +1,38 @@
 import React from "react";
-import { Typography, IconButton, Tooltip } from "@mui/material";
+import { Tooltip } from "@mui/material";
 import styled from "@emotion/styled";
-import EmailIcon from "@mui/icons-material/Email";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import TwitterIcon from "@mui/icons-material/Twitter";
 import { Link } from "@mui/material";
 
 const Section = styled.section`
   padding: 3rem 0;
 `;
 
-const SectionTitle = styled(Typography)`
-  margin-bottom: 2rem;
-  text-align: center;
-  color: #ffffff;
-`;
-
 const SocialIcons = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
 `;
 
 const SocialIconButton = styled(Link)`
-  margin: 0 1rem;
+  margin: 2rem 4rem;
+  transition: 0.3s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+`;
+
+const StyledLinkedInIcon = styled(LinkedInIcon)`
+  font-size: 3rem;
+`;
+
+const StyledGitHubIcon = styled(GitHubIcon)`
+  font-size: 3rem;
 `;
 
 interface ContactSectionProps {
@@ -33,14 +42,13 @@ interface ContactSectionProps {
 const ContactSection: React.FC<ContactSectionProps> = ({ id }) => {
   return (
     <Section id={id}>
-      <SectionTitle variant="h4">Contact</SectionTitle>
       <SocialIcons>
         <Tooltip title="LinkedIn">
           <SocialIconButton
             href="https://www.linkedin.com/in/ichinomikiya/"
             target="_blank"
           >
-            <LinkedInIcon fontSize="large" />
+            <StyledLinkedInIcon />
           </SocialIconButton>
         </Tooltip>
         <Tooltip title="GitHub">
@@ -48,7 +56,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ id }) => {
             href="https://github.com/michinoins"
             target="_blank"
           >
-            <GitHubIcon fontSize="large" />
+            <StyledGitHubIcon />
           </SocialIconButton>
         </Tooltip>
       </SocialIcons>

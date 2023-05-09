@@ -10,14 +10,6 @@ import {
   Link as MuiLink,
 } from "@mui/material";
 
-const fadeInAnimation = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-`;
 const Link = styled(MuiLink)`
   text-decoration: none;
   color: inherit;
@@ -61,7 +53,7 @@ const List = styled.ul`
 const ProjectCard = styled(Card)`
   display: flex;
   flex-direction: column;
-  max-width: 45%;
+  max-width: 50 %;
   margin-bottom: 2rem;
   position: relative;
   overflow: hidden;
@@ -96,7 +88,6 @@ const ProjectCard = styled(Card)`
 const ProjectCardMedia = styled(CardMedia)`
   height: 200px;
   width: 500px;
-  object-fit: contain;
 `;
 
 const ProjectCardContent = styled(CardContent)`
