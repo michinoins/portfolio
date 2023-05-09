@@ -20,8 +20,6 @@ const MainContent = styled.div`
 `;
 
 const Home: NextPage = () => {
-  const [isLoading, setIsLoading] = useState(true);
-
   return (
     <>
       <Header />
