@@ -54,8 +54,13 @@ const ProjectCard = styled(Card)`
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
   &:hover::after {
     opacity: 1;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
   }
   &::after {
     content: ${({ title }) => `"${title}"`};
@@ -79,6 +84,7 @@ const ProjectCard = styled(Card)`
 const ProjectCardMedia = styled(CardMedia)`
   height: 200px;
   width: 500px;
+  object-fit: contain;
 `;
 
 const ProjectCardContent = styled(CardContent)`
@@ -87,18 +93,9 @@ const ProjectCardContent = styled(CardContent)`
   justify-content: space-between;
 `;
 
-const ListItemTitle = styled(Typography)`
-  font-weight: bold;
-  color: #ffffff;
-`;
-
-const ListItemDescription = styled(Typography)`
-  text-align: justify;
-  color: #000000;
-`;
-
 const CompanyName = styled(Typography)`
   margin-bottom: 0.8rem;
+  margin-left: 0.5rem;
   font-weight: bold;
   color: #1976d2;
 `;

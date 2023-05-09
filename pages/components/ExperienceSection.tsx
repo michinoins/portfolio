@@ -143,6 +143,8 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ id }) => {
     {
       name: "SixFactor.Inc(Vancouver, Canada)",
       position: "FullStack Developer",
+      type: "Experience",
+
       period: "October 2022 - February 2023",
       description: [
         "Designed technical solutions to ensure seamless feature integration by considering database relations,business rules, and accurately scoping the affected range.",
@@ -153,6 +155,8 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ id }) => {
     {
       name: "TeamLab.Inc(Tokyo, Japan)",
       position: "FullStack Lead Developer",
+      type: "Experience",
+
       period: "June 2021 - October 2022",
       description: [
         "Led a high-performing team of three members in the operation and maintenance phases to accomplish assigned business objectives while staying within budget.",
@@ -163,6 +167,7 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ id }) => {
     {
       name: "TeamLab.Inc(Tokyo, Japan)",
       position: "Back-end Developer",
+      type: "Experience",
       period: "April 2020 - May 2021",
       description: [
         "Designed and developed Restful APIs, Batches with unit tests in Junit using Java, Kotlin,and SpringBoot.",
@@ -174,6 +179,7 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ id }) => {
     {
       name: "University of Tsukuba (Ibaraki, Japan)",
       position: "Bachelor of Computer Science",
+      type: "Education",
       period: "April 2018 - March 2020",
       description: [
         "As a Volleyball Club member, I played as an Opposite Hitter and contributed significantly to the team's score in games. 🏐",
@@ -184,6 +190,7 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ id }) => {
     {
       name: "University of Iwate (Iwate, Japan)",
       position: "Bachelor of Computer Science(transferred)",
+      type: "Education",
       period: "April 2016 - March 2018",
       description: [
         "Participated in the International Exchange Club, where I collaborated with international students to sell country-specific food at cultural festivals.🇯🇵🌍",
@@ -206,15 +213,15 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ id }) => {
                 onClick={() => setSelectedCompanyIndex(index)}
                 active={selectedCompanyIndex === index}
               >
-                {company.type === "education" ? (
+                {company.type === "Education" ? (
                   <School
                     sx={{
                       marginRight: 1,
-                      color: company.type === "education" ? "#8B4513" : null,
+                      color: "#8B4513",
                     }}
                   />
                 ) : (
-                  <Work sx={{ marginRight: 1 }} />
+                  <Work sx={{ marginRight: 1, color: "#F3F307" }} />
                 )}
                 {company.name}
               </CompanyButton>
