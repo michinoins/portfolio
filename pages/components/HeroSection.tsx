@@ -12,6 +12,11 @@ const Container = styled.div`
   flex-direction: column;
   padding-left: 5rem;
   padding-top: 20rem;
+
+  @media (max-width: 768px) {
+    padding-left: 2rem;
+    padding-top: 10rem;
+  }
 `;
 
 const Name = styled(Typography)`

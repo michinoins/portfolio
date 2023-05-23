@@ -27,6 +27,11 @@ const Section = styled.section<{ isVisible: boolean }>`
   opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
   transition: opacity 1.7s ease-in-out;
   margin: 50px 0;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const ProfileImage = styled.img`
@@ -34,6 +39,11 @@ const ProfileImage = styled.img`
   height: 300px;
   object-fit: cover;
   border-radius: 8px;
+
+  @media (max-width: 768px) {
+    width: 200px;
+    height: 200px;
+  }
 `;
 
 const Content = styled.div`
@@ -43,6 +53,11 @@ const Content = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   margin-right: 3rem;
+
+  @media (max-width: 768px) {
+    margin-right: 0;
+    align-items: center;
+  }
 `;
 
 const SectionTitle = styled(Typography)`

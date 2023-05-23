@@ -49,6 +49,11 @@ const Content = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   margin-right: 3rem;
+
+  @media (max-width: 768px) {
+    margin-right: 0;
+    align-items: center;
+  }
 `;
 
 const SectionTitle = styled(Typography)`
